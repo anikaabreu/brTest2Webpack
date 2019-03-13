@@ -23,7 +23,7 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "@babel-loader": "^8.0.0",
+    "babel-loader": "^8.0.0",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-core": "7.0.0-bridge.0",
