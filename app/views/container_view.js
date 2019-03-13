@@ -1,4 +1,5 @@
 var ContainerView = Backbone.View.extend({
+   el: $('#container'),
   initialize: function () {
     this.listenTo(Backbone, 'userError', this.showAlert);
   },
@@ -14,12 +15,7 @@ var ContainerView = Backbone.View.extend({
     this.subView = view;
   },
 
-  showAlert: function (html, type) {
-    this.$('.alert').html(html)
-        .removeClass('alert-success alert-info alert-warning alert-danger')
-        .addClass('alert-' + type)
-        .show();
-  }
+
 }); // ContainerView
 
 module.exports = ContainerView;
