@@ -26,9 +26,14 @@ module.exports = {
          }
        },
       {
-        test: /\.hbs$/,
-        loader: "handlebars-loader",
+       test: /\.hbs$/,
+        loader: "handlebars-template-loader",
+        exclude: /node_modules/
       },
+       {
+         test: /\.jpg/,
+         loader: "file-loader"
+       },
     {
       test: /\.(s*)css$/,
       use: ExtractTextPlugin.extract({
@@ -44,16 +49,22 @@ resolveLoader: {
     ]
   },
   resolve: {
+     alias: {
+       'Handlebars': 'handlebars-template-loader/runtime.js',
+    
+     },
     modules: [
       path.join(__dirname, "src"),
       "node_modules"
-    ]
+    ],
+
   },
   plugins: [
     new webpack.ProvidePlugin({
       $ : "jquery",
       Backbone : "backbone",
-      _ : "underscore"
+      _ : "underscore",
+
     }),
     	new ExtractTextPlugin({
     	  filename: 'bundle.css'
